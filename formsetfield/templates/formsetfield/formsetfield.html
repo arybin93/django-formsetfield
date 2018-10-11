@@ -1,1 +1,10 @@
-<table>{{ formset }}</table>
+<table>
+    {{ formset.management_form }}
+    <thead>
+    </thead>
+    <tbody>
+        {% for form in formset %}
+            {{ form }}
+        {% endfor %}
+    </tbody>
+</table>
