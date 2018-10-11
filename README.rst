@@ -42,6 +42,13 @@ Usage example
         adults = FormSetField(formset_factory(AdultForm))
         children = FormSetField(formset_factory(ChildForm))
 
+    # Pass custom arguments, for example initial for edit form:
+    # Based on PR: https://github.com/yumike/django-formsetfield/pull/1
+    form = PassengersForm()
+    form.fields['adults'].formset_class_attrs = {"initial": [{"fullname": "Steve", "passport": "1SDSDs"}]}
+    form.fields['children'].formset_class_attrs = {"initial": ["fullname": "Ada"]}
+
+
 Contributing
 ------------
 
