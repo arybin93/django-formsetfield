@@ -48,6 +48,12 @@ Usage example
     form.fields['adults'].formset_class_attrs = {"initial": [{"fullname": "Steve", "passport": "1SDSDs"}]}
     form.fields['children'].formset_class_attrs = {"initial": ["fullname": "Ada"]}
 
+    # Pass custom context to template
+    form = PassengersForm()
+    form.fields['adults'].template_context = {"profile": "text"]}
+
+    # use in template 'formsetfield.html'
+    {{ context.profile }}
 
 Contributing
 ------------
