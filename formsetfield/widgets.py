@@ -8,7 +8,9 @@ class FormSetWidget(forms.Widget):
     def render(self, name, value, attrs=None):
         if value is None:
             value = self.attrs['formset_class'](prefix=name, **self.attrs['formset_class_attrs'])
-        return render_to_string(self.attrs['template'], {'formset': value, 'formset_args': self.attrs['formset_class_attrs']})
+        return render_to_string(self.attrs['template'], {'formset': value,
+                                                         'formset_args': self.attrs['formset_class_attrs'],
+                                                         'context': self.attrs['template_context']})
 
     def value_from_datadict(self, data, files, name):
         return self.attrs['formset_class'](data, files, prefix=name, **self.attrs['formset_class_attrs'])
